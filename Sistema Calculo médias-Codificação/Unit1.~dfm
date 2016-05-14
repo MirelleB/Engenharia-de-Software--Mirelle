@@ -3,8 +3,8 @@ object Form1: TForm1
   Top = 371
   BorderStyle = bsNone
   Caption = 'Sistema C'#225'lculo de m'#233'dias'
-  ClientHeight = 206
-  ClientWidth = 647
+  ClientHeight = 199
+  ClientWidth = 639
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
