@@ -14,7 +14,7 @@ object Form2: TForm2
   PixelsPerInch = 96
   TextHeight = 13
   object Image1: TImage
-    Left = -16
+    Left = 8
     Top = 0
     Width = 1017
     Height = 561
@@ -18295,13 +18295,6 @@ object Form2: TForm2
     Top = 176
     Width = 97
     Height = 57
-    Caption = '1'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -20
-    Font.Name = 'MS Sans Serif'
-    Font.Style = [fsBold]
-    ParentFont = False
     TabOrder = 5
   end
   object FlatButton6: TFlatButton
@@ -18309,13 +18302,6 @@ object Form2: TForm2
     Top = 176
     Width = 97
     Height = 57
-    Caption = '2'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -20
-    Font.Name = 'MS Sans Serif'
-    Font.Style = [fsBold]
-    ParentFont = False
     TabOrder = 6
   end
   object FlatButton7: TFlatButton
@@ -18323,13 +18309,6 @@ object Form2: TForm2
     Top = 176
     Width = 97
     Height = 57
-    Caption = '3'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -20
-    Font.Name = 'MS Sans Serif'
-    Font.Style = [fsBold]
-    ParentFont = False
     TabOrder = 7
   end
   object FlatButton8: TFlatButton
@@ -18337,13 +18316,6 @@ object Form2: TForm2
     Top = 176
     Width = 97
     Height = 57
-    Caption = '4'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -20
-    Font.Name = 'MS Sans Serif'
-    Font.Style = [fsBold]
-    ParentFont = False
     TabOrder = 8
   end
   object FlatButton9: TFlatButton
@@ -18351,13 +18323,6 @@ object Form2: TForm2
     Top = 272
     Width = 97
     Height = 57
-    Caption = '5'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -20
-    Font.Name = 'MS Sans Serif'
-    Font.Style = [fsBold]
-    ParentFont = False
     TabOrder = 9
   end
   object FlatButton10: TFlatButton
@@ -18365,13 +18330,6 @@ object Form2: TForm2
     Top = 272
     Width = 97
     Height = 57
-    Caption = '6'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -20
-    Font.Name = 'MS Sans Serif'
-    Font.Style = [fsBold]
-    ParentFont = False
     TabOrder = 10
   end
   object FlatButton11: TFlatButton
@@ -18379,13 +18337,6 @@ object Form2: TForm2
     Top = 264
     Width = 97
     Height = 57
-    Caption = '7'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -20
-    Font.Name = 'MS Sans Serif'
-    Font.Style = [fsBold]
-    ParentFont = False
     TabOrder = 11
   end
   object FlatButton12: TFlatButton
@@ -18393,13 +18344,6 @@ object Form2: TForm2
     Top = 264
     Width = 97
     Height = 57
-    Caption = '8'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -20
-    Font.Name = 'MS Sans Serif'
-    Font.Style = [fsBold]
-    ParentFont = False
     TabOrder = 12
   end
   object FlatButton13: TFlatButton
@@ -18407,13 +18351,6 @@ object Form2: TForm2
     Top = 352
     Width = 97
     Height = 57
-    Caption = '9'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -20
-    Font.Name = 'MS Sans Serif'
-    Font.Style = [fsBold]
-    ParentFont = False
     TabOrder = 13
   end
   object FlatButton14: TFlatButton
@@ -18421,27 +18358,6 @@ object Form2: TForm2
     Top = 344
     Width = 97
     Height = 57
-    Caption = '0'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -20
-    Font.Name = 'MS Sans Serif'
-    Font.Style = [fsBold]
-    ParentFont = False
     TabOrder = 14
-  end
-  object FlatButton15: TFlatButton
-    Left = 408
-    Top = 352
-    Width = 97
-    Height = 57
-    Caption = 'OK!'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -20
-    Font.Name = 'MS Sans Serif'
-    Font.Style = [fsBold]
-    ParentFont = False
-    TabOrder = 15
   end
 end
