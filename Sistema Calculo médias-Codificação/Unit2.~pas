@@ -26,6 +26,7 @@ type
     FlatButton13: TFlatButton;
     FlatButton14: TFlatButton;
     Image2: TImage;
+    FlatButton15: TFlatButton;
   private
     { Private declarations }
   public
