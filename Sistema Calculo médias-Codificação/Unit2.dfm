@@ -18188,7 +18188,7 @@ object Form2: TForm2
     Font.Name = 'MS Sans Serif'
     Font.Style = []
     Lines.Strings = (
-      'Memo1')
+      '')
     ParentFont = False
     TabOrder = 4
   end
