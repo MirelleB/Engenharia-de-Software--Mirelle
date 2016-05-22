@@ -18192,5 +18192,6 @@ object Form2: TForm2
       '')
     ParentFont = False
     TabOrder = 4
+    OnKeyPress = Memo1KeyPress
   end
 end

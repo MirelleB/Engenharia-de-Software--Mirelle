@@ -16,6 +16,7 @@ type
     Memo1: TMemo;
     Image1: TImage;
     procedure FlatButton1Click(Sender: TObject);
+    procedure Memo1KeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
   public
@@ -32,11 +33,26 @@ implementation
 procedure TForm2.FlatButton1Click(Sender: TObject);
 var
 qdt:String;
+N,C:Integer;
 begin
 
 
 qdt:=inputbox('Atenção','Quantidade de dados para o calculo?','');
-
+  val (qdt , N, C);
+      if c = 0 then
+         begin
+             Showmessage('Funcionando! vc te numeros');
+           end
+           else
+           showmessage('Digite apenas Numeros!');
 end;
 
+procedure TForm2.Memo1KeyPress(Sender: TObject; var Key: Char);
+begin
+if (not(KEY in ['0'..'9',chr(8)])) and (KEY<>#0) then
+begin
+//showmessage('Soh eh permitido números!');
+KEY := #0;
+end;
+end;
 end.
