@@ -1,8 +1,8 @@
 object Form2: TForm2
-  Left = 342
-  Top = 194
-  Width = 676
-  Height = 401
+  Left = 329
+  Top = 172
+  Width = 602
+  Height = 473
   Caption = 'Calculador de M'#233'dias'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -14,10 +14,10 @@ object Form2: TForm2
   PixelsPerInch = 96
   TextHeight = 13
   object Image1: TImage
-    Left = 0
-    Top = 0
-    Width = 657
-    Height = 361
+    Left = -296
+    Top = -208
+    Width = 881
+    Height = 641
     Picture.Data = {
       0A544A504547496D61676567D40800FFD8FFE000104A46494600010101012C01
       2C0000FFED028650686F746F73686F7020332E30003842494D04040000000002
@@ -18105,9 +18105,9 @@ object Form2: TForm2
       0A381F855523915E362E7CF3B74477D0F762BCCFFFD9}
   end
   object FlatButton1: TFlatButton
-    Left = 120
+    Left = 104
     Top = 160
-    Width = 177
+    Width = 217
     Height = 57
     ColorFocused = 16766852
     ColorBorder = 16766852
@@ -18121,6 +18121,7 @@ object Form2: TForm2
     Font.Style = []
     ParentFont = False
     TabOrder = 0
+    OnClick = FlatButton1Click
   end
   object FlatButton2: TFlatButton
     Left = 353
@@ -18143,7 +18144,7 @@ object Form2: TForm2
   object FlatButton3: TFlatButton
     Left = 120
     Top = 248
-    Width = 177
+    Width = 193
     Height = 57
     ColorFocused = 16766852
     ColorDown = 16766852
@@ -18178,7 +18179,7 @@ object Form2: TForm2
     TabOrder = 3
   end
   object Memo1: TMemo
-    Left = 113
+    Left = 89
     Top = 32
     Width = 465
     Height = 89
@@ -18188,7 +18189,7 @@ object Form2: TForm2
     Font.Name = 'MS Sans Serif'
     Font.Style = []
     Lines.Strings = (
-      'Memo1')
+      '')
     ParentFont = False
     TabOrder = 4
   end
