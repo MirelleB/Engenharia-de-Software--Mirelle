@@ -1,8 +1,8 @@
 object Form2: TForm2
   Left = 329
   Top = 172
-  Width = 602
-  Height = 473
+  Width = 537
+  Height = 408
   Caption = 'Calculador de M'#233'dias'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -16,8 +16,8 @@ object Form2: TForm2
   object Image1: TImage
     Left = -296
     Top = -208
-    Width = 881
-    Height = 641
+    Width = 817
+    Height = 577
     Picture.Data = {
       0A544A504547496D61676567D40800FFD8FFE000104A46494600010101012C01
       2C0000FFED028650686F746F73686F7020332E30003842494D04040000000002
@@ -18104,9 +18104,22 @@ object Form2: TForm2
       4A71E94DAB13CCD956E24105B161F7CF0A0FAD609059C96E49357EF58B5F904F
       0A381F855523915E362E7CF3B74477D0F762BCCFFFD9}
   end
+  object Label1: TLabel
+    Left = 176
+    Top = 152
+    Width = 59
+    Height = 25
+    Caption = 'Label1'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -20
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+  end
   object FlatButton1: TFlatButton
-    Left = 104
-    Top = 160
+    Left = 32
+    Top = 224
     Width = 217
     Height = 57
     ColorFocused = 16766852
@@ -18124,10 +18137,10 @@ object Form2: TForm2
     OnClick = FlatButton1Click
   end
   object FlatButton2: TFlatButton
-    Left = 353
-    Top = 161
+    Left = 281
+    Top = 225
     Width = 185
-    Height = 57
+    Height = 56
     ColorFocused = 16766852
     ColorBorder = 16766852
     ColorHighLight = 16766852
@@ -18140,11 +18153,12 @@ object Form2: TForm2
     Font.Style = []
     ParentFont = False
     TabOrder = 1
+    OnClick = FlatButton2Click
   end
   object FlatButton3: TFlatButton
-    Left = 120
-    Top = 248
-    Width = 193
+    Left = 32
+    Top = 296
+    Width = 217
     Height = 57
     ColorFocused = 16766852
     ColorDown = 16766852
@@ -18161,9 +18175,9 @@ object Form2: TForm2
     TabOrder = 2
   end
   object FlatButton4: TFlatButton
-    Left = 358
-    Top = 248
-    Width = 177
+    Left = 278
+    Top = 296
+    Width = 195
     Height = 57
     ColorFocused = 16766852
     ColorDown = 16766852
@@ -18179,7 +18193,7 @@ object Form2: TForm2
     TabOrder = 3
   end
   object Memo1: TMemo
-    Left = 89
+    Left = 17
     Top = 32
     Width = 465
     Height = 89
@@ -18188,10 +18202,23 @@ object Form2: TForm2
     Font.Height = -19
     Font.Name = 'MS Sans Serif'
     Font.Style = []
-    Lines.Strings = (
-      '')
     ParentFont = False
     TabOrder = 4
     OnKeyPress = Memo1KeyPress
+  end
+  object FlatButton5: TFlatButton
+    Left = 24
+    Top = 144
+    Width = 129
+    Height = 49
+    Caption = 'OK!'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Segoe Print'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 5
+    OnClick = FlatButton5Click
   end
 end

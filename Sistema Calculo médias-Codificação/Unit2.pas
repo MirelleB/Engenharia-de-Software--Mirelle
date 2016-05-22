@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, TFlatButtonUnit, jpeg, ExtCtrls, TFlatEditUnit,
-  TFlatGroupBoxUnit;
+  TFlatGroupBoxUnit,math;
 
 type
   TForm2 = class(TForm)
@@ -15,8 +15,13 @@ type
     FlatButton4: TFlatButton;
     Memo1: TMemo;
     Image1: TImage;
+    FlatButton5: TFlatButton;
+    Label1: TLabel;
     procedure FlatButton1Click(Sender: TObject);
     procedure Memo1KeyPress(Sender: TObject; var Key: Char);
+    procedure FlatButton5Click(Sender: TObject);
+    procedure FlatButton2Click(Sender: TObject);
+    procedure FlatButton3Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -25,7 +30,8 @@ type
 
 var
   Form2: TForm2;
-
+  acu,acu2:Double;
+  sema,cont:Integer;
 implementation
 
 {$R *.dfm}
@@ -33,18 +39,24 @@ implementation
 procedure TForm2.FlatButton1Click(Sender: TObject);
 var
 qdt:String;
-N,C:Integer;
+Media:Double;
 begin
+//showmessage(floattostr(acu));
+//showmessage(inttostr(cont));
+media:=acu/cont;
+label1.Caption:=floattostr(media);
+sema:=0;
+cont:=0;
+acu:=0;
 
-
-qdt:=inputbox('Atenção','Quantidade de dados para o calculo?','');
-  val (qdt , N, C);
-      if c = 0 then
-         begin
-             Showmessage('Funcionando! vc te numeros');
-           end
-           else
-           showmessage('Digite apenas Numeros!');
+//qdt:=inputbox('Atenção','Quantidade de dados para o calculo?','');
+  //val (qdt , N, C);
+     // if c = 0 then
+        // begin
+           //  Showmessage('Funcionando! vc te numeros');
+           //end
+           //else
+           //showmessage('Digite apenas Numeros!');
 end;
 
 procedure TForm2.Memo1KeyPress(Sender: TObject; var Key: Char);
@@ -55,4 +67,57 @@ begin
 KEY := #0;
 end;
 end;
+procedure TForm2.FlatButton5Click(Sender: TObject);
+
+begin
+
+if (Memo1.Lines[0]='') then
+showmessage('Insira um Dado para o Cálculo')
+else
+begin
+cont:=cont+1;
+if (sema=0)then
+Begin
+
+acu:=strtofloat(Memo1.Lines[0]);
+acu2:=strtofloat(Memo1.Lines[0]);
+showmessage('Entrou');
+Memo1.Clear;
+
+sema:=1;
+end
+  else
+  begin
+acu:=acu+strtofloat(Memo1.Lines[0]);
+acu2:= acu2*strtofloat(Memo1.Lines[0]);
+Memo1.Clear;
+end;
+
+label1.Caption:=floattostr(acu2);
+end;
+end;
+procedure TForm2.FlatButton2Click(Sender: TObject);
+var
+media:Double;
+begin
+showmessage(floattostr(acu2));
+showmessage(inttostr(cont));
+media:= Power(acu2,1/cont);
+label1.Caption:=floattostr(media);
+sema:=0;
+cont:=0;
+acu2:=1;
+end;
+
+procedure TForm2.FlatButton3Click(Sender: TObject);
+begin
+showmessage(floattostr(acu2));
+showmessage(inttostr(cont));
+media:= Power(acu2,1/cont);
+label1.Caption:=floattostr(media);
+sema:=0;
+cont:=0;
+acu2:=1;
+end;
+
 end.
