@@ -118,6 +118,7 @@ label1.Caption:=floattostr(media);
 sema:=0;
 cont:=0;
 acu2:=1;
+
 end;
 
 end.

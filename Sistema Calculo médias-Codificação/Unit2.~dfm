@@ -18173,6 +18173,7 @@ object Form2: TForm2
     Font.Style = []
     ParentFont = False
     TabOrder = 2
+    OnClick = FlatButton3Click
   end
   object FlatButton4: TFlatButton
     Left = 278

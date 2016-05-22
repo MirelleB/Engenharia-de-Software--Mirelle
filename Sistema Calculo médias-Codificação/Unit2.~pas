@@ -21,6 +21,7 @@ type
     procedure Memo1KeyPress(Sender: TObject; var Key: Char);
     procedure FlatButton5Click(Sender: TObject);
     procedure FlatButton2Click(Sender: TObject);
+    procedure FlatButton3Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -98,6 +99,17 @@ end;
 procedure TForm2.FlatButton2Click(Sender: TObject);
 var
 media:Double;
+begin
+showmessage(floattostr(acu2));
+showmessage(inttostr(cont));
+media:= Power(acu2,1/cont);
+label1.Caption:=floattostr(media);
+sema:=0;
+cont:=0;
+acu2:=1;
+end;
+
+procedure TForm2.FlatButton3Click(Sender: TObject);
 begin
 showmessage(floattostr(acu2));
 showmessage(inttostr(cont));
