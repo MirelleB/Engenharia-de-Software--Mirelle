@@ -22,6 +22,7 @@ type
     procedure FlatButton5Click(Sender: TObject);
     procedure FlatButton2Click(Sender: TObject);
     procedure FlatButton3Click(Sender: TObject);
+    procedure FlatButton4Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -118,21 +119,23 @@ end;
 procedure TForm2.FlatButton3Click(Sender: TObject);
 var
 i:Integer;
-soma,peso:Double;
+soma,peso,media:Double;
 begin
 i:=1;
 soma:=0;
 while (i<=cont) do
 begin
-i:=i+1;
+
 showmessage(inttostr(cont));
 showmessage(floattostr(vetor[i]));
 peso:=strtofloat(inputbox('Atenção','Insera o peso?',''));
 soma:=soma+vetor[i]*peso;
-
+ i:=i+1;
 end;
 
 showmessage(floattostr(soma));
+media:=soma/cont;
+showmessage(floattostr(media));
 //showmessage(inttostr(cont));
 //media:= Power(acu2,1/cont);
 //label1.Caption:=floattostr(media);
@@ -140,6 +143,26 @@ sema:=0;
 cont:=0;
 acu2:=1;
 
+end;
+
+procedure TForm2.FlatButton4Click(Sender: TObject);
+var
+i:Integer;
+soma,peso,media:Double;
+begin
+i:=1;
+soma:=0;
+while (i<=cont) do
+begin
+
+//showmessage(inttostr(cont));
+//showmessage(floattostr(vetor[i]));
+//peso:=strtofloat(inputbox('Atenção','Insera o peso?',''));
+soma:=soma+1/vetor[i];
+ i:=i+1;
+ end;
+ media:=cont/soma;
+showmessage(floattostr(media));
 end;
 
 end.

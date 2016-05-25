@@ -118,20 +118,23 @@ end;
 procedure TForm2.FlatButton3Click(Sender: TObject);
 var
 i:Integer;
-soma,peso:Double;
+soma,peso,media:Double;
 begin
 i:=1;
-while (i<cont) do
+soma:=0;
+while (i<=cont) do
 begin
-i:=i+1;
+
 showmessage(inttostr(cont));
 showmessage(floattostr(vetor[i]));
 peso:=strtofloat(inputbox('Atenção','Insera o peso?',''));
 soma:=soma+vetor[i]*peso;
-
+ i:=i+1;
 end;
 
 showmessage(floattostr(soma));
+media:=soma/cont;
+showmessage(floattostr(media));
 //showmessage(inttostr(cont));
 //media:= Power(acu2,1/cont);
 //label1.Caption:=floattostr(media);

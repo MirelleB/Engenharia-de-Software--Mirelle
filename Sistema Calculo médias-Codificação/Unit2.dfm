@@ -18192,6 +18192,7 @@ object Form2: TForm2
     Font.Style = []
     ParentFont = False
     TabOrder = 3
+    OnClick = FlatButton4Click
   end
   object Memo1: TMemo
     Left = 17
