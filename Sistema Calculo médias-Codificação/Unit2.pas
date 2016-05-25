@@ -121,7 +121,8 @@ i:Integer;
 soma,peso:Double;
 begin
 i:=1;
-while (i<cont) do
+soma:=0;
+while (i<=cont) do
 begin
 i:=i+1;
 showmessage(inttostr(cont));

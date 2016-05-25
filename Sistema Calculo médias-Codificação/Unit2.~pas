@@ -127,7 +127,7 @@ i:=i+1;
 showmessage(inttostr(cont));
 showmessage(floattostr(vetor[i]));
 peso:=strtofloat(inputbox('Atenção','Insera o peso?',''));
-soma:=vetor[i]*peso;
+soma:=soma+vetor[i]*peso;
 
 end;
 
