@@ -31,7 +31,7 @@ type
 var
   Form2: TForm2;
   acu,acu2:Double;
-  sema,cont:Integer;
+  sema,cont,int:Integer;
   vetor: array[1..20] of Double;
 implementation
 
@@ -69,8 +69,7 @@ KEY := #0;
 end;
 end;
 procedure TForm2.FlatButton5Click(Sender: TObject);
-var
-i:Integer;
+
 begin
 
 if (Memo1.Lines[0]='') then
@@ -80,19 +79,21 @@ begin
 cont:=cont+1;
 if (sema=0)then
 Begin
-i:=1;
-vetor[i]:=strtofloat(Memo1.Lines[0]);
+int:=1;
+vetor[int]:=strtofloat(Memo1.Lines[0]);
+showmessage(floattostr(vetor[int]));
 acu:=strtofloat(Memo1.Lines[0]);
 acu2:=strtofloat(Memo1.Lines[0]);
 showmessage('Entrou');
 Memo1.Clear;
-
 sema:=1;
 end
   else
   begin
-  i:=i+1;
-  vetor[i]:=strtofloat(Memo1.Lines[0]);
+  int:=int+1;
+  vetor[int]:=strtofloat(Memo1.Lines[0]);
+  showmessage(floattostr(vetor[int]));
+  showmessage(inttostr(int));
 acu:=acu+strtofloat(Memo1.Lines[0]);
 acu2:= acu2*strtofloat(Memo1.Lines[0]);
 Memo1.Clear;
@@ -120,13 +121,14 @@ i:Integer;
 soma,peso:Double;
 begin
 i:=1;
-while (i<=cont) do
+while (i<cont) do
 begin
+i:=i+1;
 showmessage(inttostr(cont));
 showmessage(floattostr(vetor[i]));
 peso:=strtofloat(inputbox('Atenção','Insera o peso?',''));
 soma:=vetor[i]*peso;
-i:=i+1;
+
 end;
 
 showmessage(floattostr(soma));

@@ -18139,7 +18139,7 @@ object Form2: TForm2
   object FlatButton2: TFlatButton
     Left = 281
     Top = 225
-    Width = 185
+    Width = 192
     Height = 56
     ColorFocused = 16766852
     ColorBorder = 16766852
