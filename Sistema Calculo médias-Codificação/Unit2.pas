@@ -51,9 +51,9 @@ showmessage(floattostr(acu));
 showmessage(inttostr(cont));
 media:=acu/cont;
 label2.Caption:=floattostr(media);
-sema:=0;
-cont:=0;
-acu:=0;
+//sema:=0;
+//cont:=0;
+//acu:=0;
 flatbutton1.Enabled:=false;
 flatbutton2.Enabled:=false;
 flatbutton3.Enabled:=false;
@@ -83,7 +83,7 @@ procedure TForm2.FlatButton5Click(Sender: TObject);
 
 begin
 
-if (Edit1.Text='') then
+if (Edit1.Text='') or (edit1.Text='0') then
 showmessage('Insira um Dado para o Cálculo')
 else
 begin
@@ -121,9 +121,9 @@ showmessage(floattostr(acu2));
 showmessage(inttostr(cont));
 media:= Power(acu2,1/cont);
 label1.Caption:=floattostr(media);
-sema:=0;
-cont:=0;
-acu2:=1;
+//sema:=0;
+//cont:=0;
+//acu2:=1;
 flatbutton1.Enabled:=false;
 flatbutton2.Enabled:=false;
 flatbutton3.Enabled:=false;
@@ -153,9 +153,9 @@ showmessage(floattostr(media));
 //showmessage(inttostr(cont));
 //media:= Power(acu2,1/cont);
 //label1.Caption:=floattostr(media);
-sema:=0;
-cont:=0;
-acu2:=1;
+//sema:=0;
+//cont:=0;
+//acu2:=1;
 flatbutton1.Enabled:=false;
 flatbutton2.Enabled:=false;
 flatbutton3.Enabled:=false;
@@ -194,15 +194,19 @@ begin
 KEY := #0;
 end;
 if (key=#13)  then
+begin
+if (not(KEY in ['0'..'9'])) then
+showmessage('Insire dados compativeis, por favor')
+else
 flatbutton5.Click;
 end;
-
+ end;
 
 procedure TForm2.FlatButton6Click(Sender: TObject);
 var
 i,contador:Integer;
 begin
-i:=1;
+  i:=1;
 contador:=20;
 acu:=0;
 acu2:=0;
@@ -215,6 +219,7 @@ acu2:=0;
  vetor[i]:=0;
  i:=i+1;
   end;
+
 
 flatbutton1.Enabled:=True;
 flatbutton2.Enabled:=True;
