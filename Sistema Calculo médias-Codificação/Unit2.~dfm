@@ -18118,8 +18118,8 @@ object Form2: TForm2
       0A381F855523915E362E7CF3B74477D0F762BCCFFFD9}
   end
   object Label2: TLabel
-    Left = 232
-    Top = 192
+    Left = 200
+    Top = 168
     Width = 129
     Height = 49
     Caption = 'Label2'

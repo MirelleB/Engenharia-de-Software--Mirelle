@@ -188,6 +188,9 @@ end;
 
 procedure TForm2.Edit1KeyPress(Sender: TObject; var Key: Char);
 begin
+
+//if (KEY<>',') then
+//begin
 if (not(KEY in ['0'..'9',chr(8),chr(13),','])) and (KEY<>#0) then
 begin
 //showmessage('Soh eh permitido números!');
@@ -196,12 +199,14 @@ end;
 if (key=#13)  then
 begin
 if (not(KEY in ['0'..'9'])) then
-showmessage('Insire dados compativeis, por favor')
+KEY := #0
 else
 flatbutton5.Click;
 end;
- end;
-
+ end ;
+ //else
+  //KEY := #0;
+   //end;
 procedure TForm2.FlatButton6Click(Sender: TObject);
 var
 i,contador:Integer;

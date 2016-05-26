@@ -194,9 +194,13 @@ begin
 KEY := #0;
 end;
 if (key=#13)  then
+begin
+if (not(KEY in ['0'..'9'])) then
+showmessage('Insire dados compativeis, por favor')
+else
 flatbutton5.Click;
 end;
-
+ end;
 
 procedure TForm2.FlatButton6Click(Sender: TObject);
 var

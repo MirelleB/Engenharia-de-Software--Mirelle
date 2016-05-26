@@ -18120,8 +18120,8 @@ object Form2: TForm2
   object Label2: TLabel
     Left = 200
     Top = 168
-    Width = 129
-    Height = 49
+    Width = 32
+    Height = 13
     Caption = 'Label2'
   end
   object FlatButton1: TFlatButton
