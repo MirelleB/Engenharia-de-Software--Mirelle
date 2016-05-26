@@ -211,13 +211,16 @@ acu2:=0;
   int:=0;
  while(i<=20)do
  begin
+
  vetor[i]:=0;
+ i:=i+1;
   end;
 
 flatbutton1.Enabled:=True;
 flatbutton2.Enabled:=True;
 flatbutton3.Enabled:=True;
 flatbutton4.Enabled:=True;
+label2.Caption:='';
 end;
 
 end.

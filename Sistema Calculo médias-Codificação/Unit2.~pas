@@ -199,7 +199,23 @@ end;
 
 
 procedure TForm2.FlatButton6Click(Sender: TObject);
+var
+i,contador:Integer;
 begin
+i:=1;
+contador:=20;
+acu:=0;
+acu2:=0;
+  sema:=0;
+  cont:=0;
+  int:=0;
+ while(i<=20)do
+ begin
+
+ vetor[i]:=0;
+ i:=i+1;
+  end;
+label2.Caption:='';
 flatbutton1.Enabled:=True;
 flatbutton2.Enabled:=True;
 flatbutton3.Enabled:=True;
