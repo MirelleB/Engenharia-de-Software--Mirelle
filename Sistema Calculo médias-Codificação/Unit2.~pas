@@ -13,15 +13,20 @@ type
     FlatButton2: TFlatButton;
     FlatButton3: TFlatButton;
     FlatButton4: TFlatButton;
-    Memo1: TMemo;
-    Image1: TImage;
     FlatButton5: TFlatButton;
     Label1: TLabel;
+    FlatButton6: TFlatButton;
+    Image1: TImage;
+    Edit1: TEdit;
+    Label2: TLabel;
     procedure FlatButton1Click(Sender: TObject);
     procedure Memo1KeyPress(Sender: TObject; var Key: Char);
     procedure FlatButton5Click(Sender: TObject);
     procedure FlatButton2Click(Sender: TObject);
     procedure FlatButton3Click(Sender: TObject);
+    procedure FlatButton4Click(Sender: TObject);
+    procedure Edit1KeyPress(Sender: TObject; var Key: Char);
+    procedure FlatButton6Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -42,13 +47,17 @@ var
 qdt:String;
 Media:Double;
 begin
-//showmessage(floattostr(acu));
-//showmessage(inttostr(cont));
+showmessage(floattostr(acu));
+showmessage(inttostr(cont));
 media:=acu/cont;
-label1.Caption:=floattostr(media);
+label2.Caption:=floattostr(media);
 sema:=0;
 cont:=0;
 acu:=0;
+flatbutton1.Enabled:=false;
+flatbutton2.Enabled:=false;
+flatbutton3.Enabled:=false;
+flatbutton4.Enabled:=false;
 
 //qdt:=inputbox('Atenção','Quantidade de dados para o calculo?','');
   //val (qdt , N, C);
@@ -62,17 +71,19 @@ end;
 
 procedure TForm2.Memo1KeyPress(Sender: TObject; var Key: Char);
 begin
-if (not(KEY in ['0'..'9',chr(8)])) and (KEY<>#0) then
+if (not(KEY in ['0'..'9',chr(8),chr(13),','])) and (KEY<>#0) then
 begin
 //showmessage('Soh eh permitido números!');
 KEY := #0;
 end;
+if (key=#13)  then
+flatbutton5.Click;
 end;
 procedure TForm2.FlatButton5Click(Sender: TObject);
 
 begin
 
-if (Memo1.Lines[0]='') then
+if (Edit1.Text='') then
 showmessage('Insira um Dado para o Cálculo')
 else
 begin
@@ -80,23 +91,23 @@ cont:=cont+1;
 if (sema=0)then
 Begin
 int:=1;
-vetor[int]:=strtofloat(Memo1.Lines[0]);
+vetor[int]:=strtofloat(Edit1.Text);
 showmessage(floattostr(vetor[int]));
-acu:=strtofloat(Memo1.Lines[0]);
-acu2:=strtofloat(Memo1.Lines[0]);
+acu:=strtofloat(Edit1.Text);
+acu2:=strtofloat(Edit1.Text);
 showmessage('Entrou');
-Memo1.Clear;
+Edit1.Clear;
 sema:=1;
 end
   else
   begin
   int:=int+1;
-  vetor[int]:=strtofloat(Memo1.Lines[0]);
+  vetor[int]:=strtofloat(Edit1.Text);
   showmessage(floattostr(vetor[int]));
   showmessage(inttostr(int));
-acu:=acu+strtofloat(Memo1.Lines[0]);
-acu2:= acu2*strtofloat(Memo1.Lines[0]);
-Memo1.Clear;
+acu:=acu+strtofloat(Edit1.Text);
+acu2:= acu2*strtofloat(Edit1.Text);
+Edit1.Clear;
 end;
 
 label1.Caption:=floattostr(acu2);
@@ -113,6 +124,10 @@ label1.Caption:=floattostr(media);
 sema:=0;
 cont:=0;
 acu2:=1;
+flatbutton1.Enabled:=false;
+flatbutton2.Enabled:=false;
+flatbutton3.Enabled:=false;
+flatbutton4.Enabled:=false;
 end;
 
 procedure TForm2.FlatButton3Click(Sender: TObject);
@@ -141,7 +156,54 @@ showmessage(floattostr(media));
 sema:=0;
 cont:=0;
 acu2:=1;
+flatbutton1.Enabled:=false;
+flatbutton2.Enabled:=false;
+flatbutton3.Enabled:=false;
+flatbutton4.Enabled:=false;
+end;
 
+procedure TForm2.FlatButton4Click(Sender: TObject);
+var
+i:Integer;
+soma,peso,media:Double;
+begin
+i:=1;
+soma:=0;
+while (i<=cont) do
+begin
+
+//showmessage(inttostr(cont));
+//showmessage(floattostr(vetor[i]));
+//peso:=strtofloat(inputbox('Atenção','Insera o peso?',''));
+soma:=soma+1/vetor[i];
+ i:=i+1;
+ end;
+ media:=cont/soma;
+showmessage(floattostr(media));
+flatbutton1.Enabled:=false;
+flatbutton2.Enabled:=false;
+flatbutton3.Enabled:=false;
+flatbutton4.Enabled:=false;
+end;
+
+procedure TForm2.Edit1KeyPress(Sender: TObject; var Key: Char);
+begin
+if (not(KEY in ['0'..'9',chr(8),chr(13),','])) and (KEY<>#0) then
+begin
+//showmessage('Soh eh permitido números!');
+KEY := #0;
+end;
+if (key=#13)  then
+flatbutton5.Click;
+end;
+
+
+procedure TForm2.FlatButton6Click(Sender: TObject);
+begin
+flatbutton1.Enabled:=True;
+flatbutton2.Enabled:=True;
+flatbutton3.Enabled:=True;
+flatbutton4.Enabled:=True;
 end;
 
 end.
