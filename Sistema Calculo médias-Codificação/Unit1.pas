@@ -43,7 +43,7 @@ begin
  30: label2.Caption:='Inializando o Programa.......';
  end;
  form1.Update;
- sleep(500);
+ sleep(100);
  end;
 
  form1.Update;

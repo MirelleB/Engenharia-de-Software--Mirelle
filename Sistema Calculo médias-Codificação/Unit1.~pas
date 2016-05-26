@@ -26,6 +26,8 @@ var
 
 implementation
 
+uses Unit2;
+
 {$R *.dfm}
 
 procedure TForm1.Timer1Timer(Sender: TObject);
@@ -48,7 +50,7 @@ begin
  sleep(200);
 
 form1.Destroy;
-//form2.show;
+form2.show;
 
 end;
 

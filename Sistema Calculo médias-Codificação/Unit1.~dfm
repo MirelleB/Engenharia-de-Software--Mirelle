@@ -1,10 +1,10 @@
 object Form1: TForm1
-  Left = 351
-  Top = 371
+  Left = 352
+  Top = 319
   BorderStyle = bsNone
   Caption = 'Sistema C'#225'lculo de m'#233'dias'
-  ClientHeight = 199
-  ClientWidth = 639
+  ClientHeight = 213
+  ClientWidth = 640
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,8 +17,8 @@ object Form1: TForm1
   object Image1: TImage
     Left = 0
     Top = 0
-    Width = 641
-    Height = 185
+    Width = 649
+    Height = 209
     Picture.Data = {
       0A544A504547496D61676572890000FFD8FFE000104A46494600010101004800
       480000FFDB004300090606060706090707090E0908090E100C09090C10120F0F
@@ -1140,13 +1140,13 @@ object Form1: TForm1
   end
   object Label2: TLabel
     Left = 0
-    Top = 144
-    Width = 8
-    Height = 35
+    Top = 160
+    Width = 6
+    Height = 27
     Color = clRed
     Font.Charset = ANSI_CHARSET
     Font.Color = clWhite
-    Font.Height = -27
+    Font.Height = -21
     Font.Name = 'Tempus Sans ITC'
     Font.Style = [fsBold, fsItalic]
     ParentColor = False
@@ -1155,7 +1155,7 @@ object Form1: TForm1
   end
   object ProgressBar1: TProgressBar
     Left = 0
-    Top = 176
+    Top = 192
     Width = 641
     Height = 25
     TabOrder = 0

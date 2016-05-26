@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, TFlatButtonUnit, jpeg, ExtCtrls, TFlatEditUnit,
-  TFlatGroupBoxUnit,math;
+  TFlatGroupBoxUnit,math, TFlatPanelUnit;
 
 type
   TForm2 = class(TForm)
@@ -14,10 +14,9 @@ type
     FlatButton3: TFlatButton;
     FlatButton4: TFlatButton;
     FlatButton5: TFlatButton;
-    Label1: TLabel;
     FlatButton6: TFlatButton;
-    Image1: TImage;
     Edit1: TEdit;
+    Image1: TImage;
     Label2: TLabel;
     procedure FlatButton1Click(Sender: TObject);
     procedure Memo1KeyPress(Sender: TObject; var Key: Char);
@@ -27,6 +26,8 @@ type
     procedure FlatButton4Click(Sender: TObject);
     procedure Edit1KeyPress(Sender: TObject; var Key: Char);
     procedure FlatButton6Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -36,9 +37,11 @@ type
 var
   Form2: TForm2;
   acu,acu2:Double;
-  sema,cont,int:Integer;
+  sema,cont,int,veri:Integer;
   vetor: array[1..20] of Double;
 implementation
+
+uses Unit1;
 
 {$R *.dfm}
 
@@ -50,6 +53,7 @@ begin
 showmessage(floattostr(acu));
 showmessage(inttostr(cont));
 media:=acu/cont;
+media:=strtofloat(formatfloat('#0.00',media));
 label2.Caption:=floattostr(media);
 //sema:=0;
 //cont:=0;
@@ -83,8 +87,11 @@ procedure TForm2.FlatButton5Click(Sender: TObject);
 
 begin
 
-if (Edit1.Text='') or (edit1.Text='0') then
-showmessage('Insira um Dado para o Cálculo')
+if (Edit1.Text='') or (edit1.Text='0') or (edit1.Text=',') then
+begin
+showmessage('Dado inválido');
+edit1.clear;
+end
 else
 begin
 cont:=cont+1;
@@ -98,6 +105,11 @@ acu2:=strtofloat(Edit1.Text);
 showmessage('Entrou');
 Edit1.Clear;
 sema:=1;
+flatbutton1.Enabled:=True;
+flatbutton2.Enabled:=True;
+flatbutton3.Enabled:=True;
+flatbutton4.Enabled:=True;
+label2.Caption:='';
 end
   else
   begin
@@ -108,9 +120,15 @@ end
 acu:=acu+strtofloat(Edit1.Text);
 acu2:= acu2*strtofloat(Edit1.Text);
 Edit1.Clear;
+flatbutton1.Enabled:=True;
+flatbutton2.Enabled:=True;
+flatbutton3.Enabled:=True;
+flatbutton4.Enabled:=True;
+label2.Caption:='';
+
 end;
 
-label1.Caption:=floattostr(acu2);
+label2.Caption:=floattostr(acu2);
 end;
 end;
 procedure TForm2.FlatButton2Click(Sender: TObject);
@@ -120,20 +138,25 @@ begin
 showmessage(floattostr(acu2));
 showmessage(inttostr(cont));
 media:= Power(acu2,1/cont);
-label1.Caption:=floattostr(media);
+label2.Caption:=floattostr(media);
 //sema:=0;
 //cont:=0;
 //acu2:=1;
+media:=strtofloat(formatfloat('#0.00',media));
+label2.Caption:=floattostr(media);
 flatbutton1.Enabled:=false;
 flatbutton2.Enabled:=false;
 flatbutton3.Enabled:=false;
 flatbutton4.Enabled:=false;
+
 end;
 
 procedure TForm2.FlatButton3Click(Sender: TObject);
 var
 i:Integer;
 soma,peso,media:Double;
+nomevar : String;
+N, C : integer;
 begin
 i:=1;
 soma:=0;
@@ -142,13 +165,25 @@ begin
 
 showmessage(inttostr(cont));
 showmessage(floattostr(vetor[i]));
-peso:=strtofloat(inputbox('Atenção','Insera o peso?',''));
+nomevar:=(inputbox('Atenção','Para a entrada '+floattostr(vetor[i])+'  Insera o peso',''));
+val (nomevar , N, C);
+if (c = 0) then
+begin
+peso:=strtofloat(nomevar);
+end
+else
+begin
+showmessage('Entrada invalida');
+i:=0;
+soma:=0;
+end;
 soma:=soma+vetor[i]*peso;
  i:=i+1;
 end;
 
 showmessage(floattostr(soma));
 media:=soma/cont;
+media:=strtofloat(formatfloat('#0.00',media));
 showmessage(floattostr(media));
 //showmessage(inttostr(cont));
 //media:= Power(acu2,1/cont);
@@ -160,6 +195,7 @@ flatbutton1.Enabled:=false;
 flatbutton2.Enabled:=false;
 flatbutton3.Enabled:=false;
 flatbutton4.Enabled:=false;
+label2.Caption:=floattostr(media);
 end;
 
 procedure TForm2.FlatButton4Click(Sender: TObject);
@@ -180,6 +216,8 @@ soma:=soma+1/vetor[i];
  end;
  media:=cont/soma;
 showmessage(floattostr(media));
+media:=strtofloat(formatfloat('#0.00',media));
+label2.Caption:=floattostr(media);
 flatbutton1.Enabled:=false;
 flatbutton2.Enabled:=false;
 flatbutton3.Enabled:=false;
@@ -190,22 +228,28 @@ procedure TForm2.Edit1KeyPress(Sender: TObject; var Key: Char);
 begin
 if (not(KEY in ['0'..'9',chr(8),chr(13),','])) and (KEY<>#0) then
 begin
-//showmessage('Soh eh permitido números!');
 KEY := #0;
+//showmessage('aqui');
 end;
+  if (key in [DecimalSeparator]) and (Pos(DecimalSeparator, Edit1.Text) <> 0) then
+    key := #0;
+
 if (key=#13)  then
 begin
-if (not(KEY in ['0'..'9'])) then
-showmessage('Insire dados compativeis, por favor')
-else
 flatbutton5.Click;
 end;
  end;
+ //else
+  //KEY := #0;
 
 procedure TForm2.FlatButton6Click(Sender: TObject);
 var
 i,contador:Integer;
+dec:String;
 begin
+dec:=inputbox('Atenção','Deseja Repetir com novos valores?, Digite S(Sim)ou N(Não) ','');
+ if (dec='S')then
+     begin
   i:=1;
 contador:=20;
 acu:=0;
@@ -218,14 +262,44 @@ acu2:=0;
 
  vetor[i]:=0;
  i:=i+1;
-  end;
-
-
-flatbutton1.Enabled:=True;
+ end;
+ flatbutton1.Enabled:=True;
 flatbutton2.Enabled:=True;
 flatbutton3.Enabled:=True;
 flatbutton4.Enabled:=True;
 label2.Caption:='';
+
+  end;
+  if (dec='N') then
+  begin
+  flatbutton1.Enabled:=True;
+flatbutton2.Enabled:=True;
+flatbutton3.Enabled:=True;
+flatbutton4.Enabled:=True;
+label2.Caption:='';
+end
+  else
+  if (dec<>'S') and (dec<>'N') then
+  begin
+
+  showmessage('Entrada Inválida,foi digitado:'+dec+' Entrada Esperada: S ou N');
+  
+   end;
+
 end;
 
+procedure TForm2.FormShow(Sender: TObject);
+begin
+flatbutton1.Enabled:=false;
+flatbutton2.Enabled:=false;
+flatbutton3.Enabled:=false;
+flatbutton4.Enabled:=false;
+end;
+
+procedure TForm2.FormCreate(Sender: TObject);
+begin
+
+DeleteMenu(GetSystemMenu(Handle, False), SC_MOVE, MF_BYCOMMAND);
+
+    end;
 end.
