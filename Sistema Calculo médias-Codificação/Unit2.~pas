@@ -16,7 +16,8 @@ type
     FlatButton5: TFlatButton;
     FlatButton6: TFlatButton;
     Edit1: TEdit;
-    Image1: TImage;
+    di: TImage;
+    FlatPanel1: TFlatPanel;
     Label2: TLabel;
     procedure FlatButton1Click(Sender: TObject);
     procedure Memo1KeyPress(Sender: TObject; var Key: Char);
@@ -28,6 +29,11 @@ type
     procedure FlatButton6Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure Edit1Click(Sender: TObject);
+    procedure Edit1Enter(Sender: TObject);
+    procedure Edit1Change(Sender: TObject);
+    procedure diClick(Sender: TObject);
+    procedure Edit1Exit(Sender: TObject);
   private
     { Private declarations }
   public
@@ -50,8 +56,8 @@ var
 qdt:String;
 Media:Double;
 begin
-showmessage(floattostr(acu));
-showmessage(inttostr(cont));
+//showmessage(floattostr(acu));
+//showmessage(inttostr(cont));
 media:=acu/cont;
 media:=strtofloat(formatfloat('#0.00',media));
 label2.Caption:=floattostr(media);
@@ -99,10 +105,10 @@ if (sema=0)then
 Begin
 int:=1;
 vetor[int]:=strtofloat(Edit1.Text);
-showmessage(floattostr(vetor[int]));
+//showmessage(floattostr(vetor[int]));
 acu:=strtofloat(Edit1.Text);
 acu2:=strtofloat(Edit1.Text);
-showmessage('Entrou');
+//showmessage('Entrou');
 Edit1.Clear;
 sema:=1;
 flatbutton1.Enabled:=True;
@@ -115,8 +121,8 @@ end
   begin
   int:=int+1;
   vetor[int]:=strtofloat(Edit1.Text);
-  showmessage(floattostr(vetor[int]));
-  showmessage(inttostr(int));
+  //showmessage(floattostr(vetor[int]));
+  //showmessage(inttostr(int));
 acu:=acu+strtofloat(Edit1.Text);
 acu2:= acu2*strtofloat(Edit1.Text);
 Edit1.Clear;
@@ -127,16 +133,16 @@ flatbutton4.Enabled:=True;
 label2.Caption:='';
 
 end;
-
-label2.Caption:=floattostr(acu2);
+label1.Caption:=floattostr(vetor[0]);
+//label2.Caption:=floattostr(acu2);
 end;
 end;
 procedure TForm2.FlatButton2Click(Sender: TObject);
 var
 media:Double;
 begin
-showmessage(floattostr(acu2));
-showmessage(inttostr(cont));
+//showmessage(floattostr(acu2));
+//showmessage(inttostr(cont));
 media:= Power(acu2,1/cont);
 label2.Caption:=floattostr(media);
 //sema:=0;
@@ -163,8 +169,8 @@ soma:=0;
 while (i<=cont) do
 begin
 
-showmessage(inttostr(cont));
-showmessage(floattostr(vetor[i]));
+//showmessage(inttostr(cont));
+//showmessage(floattostr(vetor[i]));
 nomevar:=(inputbox('Atenção','Para a entrada '+floattostr(vetor[i])+'  Insera o peso',''));
 val (nomevar , N, C);
 if (c = 0) then
@@ -181,10 +187,10 @@ soma:=soma+vetor[i]*peso;
  i:=i+1;
 end;
 
-showmessage(floattostr(soma));
+//showmessage(floattostr(soma));
 media:=soma/cont;
 media:=strtofloat(formatfloat('#0.00',media));
-showmessage(floattostr(media));
+//showmessage(floattostr(media));
 //showmessage(inttostr(cont));
 //media:= Power(acu2,1/cont);
 //label1.Caption:=floattostr(media);
@@ -215,7 +221,7 @@ soma:=soma+1/vetor[i];
  i:=i+1;
  end;
  media:=cont/soma;
-showmessage(floattostr(media));
+//showmessage(floattostr(media));
 media:=strtofloat(formatfloat('#0.00',media));
 label2.Caption:=floattostr(media);
 flatbutton1.Enabled:=false;
@@ -283,17 +289,21 @@ end
   begin
 
   showmessage('Entrada Inválida,foi digitado:'+dec+' Entrada Esperada: S ou N');
-  
+
    end;
 
 end;
 
 procedure TForm2.FormShow(Sender: TObject);
 begin
+edit1.Enabled:=False;
+
+edit1.Text:=' Digite os Dados';
 flatbutton1.Enabled:=false;
 flatbutton2.Enabled:=false;
 flatbutton3.Enabled:=false;
 flatbutton4.Enabled:=false;
+
 end;
 
 procedure TForm2.FormCreate(Sender: TObject);
@@ -302,4 +312,39 @@ begin
 DeleteMenu(GetSystemMenu(Handle, False), SC_MOVE, MF_BYCOMMAND);
 
     end;
+procedure TForm2.Edit1Click(Sender: TObject);
+begin
+
+//edit1.Enabled:=True;
+edit1.clear;
+
+end;
+
+procedure TForm2.Edit1Enter(Sender: TObject);
+begin
+if Edit1.Text = 'Informe o nome' then 
+Begin
+Edit1.Clear;
+Edit1.Font.Color:= clWindowText;
+End;
+end;
+
+procedure TForm2.Edit1Change(Sender: TObject);
+begin
+edit1.Font.Color:=clblack;
+//edit1.Enabled:=True;
+end;
+
+procedure TForm2.diClick(Sender: TObject);
+begin
+edit1.Font.Color:=clSilver;
+edit1.Enabled:=True;
+end;
+
+procedure TForm2.Edit1Exit(Sender: TObject);
+begin
+edit1.Font.Color:=clSilver;
+edit1.Text:=' Digite os Dados';
+end;
+
 end.

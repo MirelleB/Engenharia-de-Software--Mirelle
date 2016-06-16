@@ -16,7 +16,7 @@ type
     FlatButton5: TFlatButton;
     FlatButton6: TFlatButton;
     Edit1: TEdit;
-    Image1: TImage;
+    di: TImage;
     FlatPanel1: TFlatPanel;
     Label2: TLabel;
     procedure FlatButton1Click(Sender: TObject);
@@ -29,6 +29,11 @@ type
     procedure FlatButton6Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure Edit1Click(Sender: TObject);
+    procedure Edit1Enter(Sender: TObject);
+    procedure Edit1Change(Sender: TObject);
+    procedure diClick(Sender: TObject);
+    procedure Edit1Exit(Sender: TObject);
   private
     { Private declarations }
   public
@@ -88,7 +93,7 @@ procedure TForm2.FlatButton5Click(Sender: TObject);
 
 begin
 
-if (Edit1.Text='') or (edit1.Text='0') or (edit1.Text=',') then
+if (Edit1.Text='') or (edit1.Text='0') or (edit1.Text=',') or (edit1.Text='Digite os Dados')then
 begin
 showmessage('Dado inválido');
 edit1.clear;
@@ -128,7 +133,7 @@ flatbutton4.Enabled:=True;
 label2.Caption:='';
 
 end;
-
+//label1.Caption:=floattostr(vetor[0]);
 //label2.Caption:=floattostr(acu2);
 end;
 end;
@@ -174,7 +179,8 @@ peso:=strtofloat(nomevar);
 end
 else
 begin
-showmessage('Entrada invalida');
+
+showmessage('Entrada invalida, Foi Digitado:'+(nomevar)+' Esperado apenas Números');
 i:=0;
 soma:=0;
 end;
@@ -248,9 +254,12 @@ var
 i,contador:Integer;
 dec:String;
 begin
-dec:=inputbox('Atenção','Deseja Repetir com novos valores?, Digite S(Sim)ou N(Não) ','');
- if (dec='S')then
-     begin
+ if messagebox(handle,' Deseja Repetir com Novos Valores?','Atenção', mb_IconQuestion + mb_YesNo + mb_DefButton1 ) = idyes then
+ begin
+flatbutton1.Enabled:=false;
+flatbutton2.Enabled:=false;
+flatbutton3.Enabled:=false;
+flatbutton4.Enabled:=false;
   i:=1;
 contador:=20;
 acu:=0;
@@ -264,37 +273,33 @@ acu2:=0;
  vetor[i]:=0;
  i:=i+1;
  end;
- flatbutton1.Enabled:=True;
-flatbutton2.Enabled:=True;
-flatbutton3.Enabled:=True;
-flatbutton4.Enabled:=True;
-label2.Caption:='';
 
-  end;
-  if (dec='N') then
+   label2.Caption:='';
+  end
+  else
+  if (acu=0) or (acu2=0) then
+  showmessage(' O sistema não encontrou nenhum dado,Insira Valores Por favor')
+  else
   begin
   flatbutton1.Enabled:=True;
 flatbutton2.Enabled:=True;
 flatbutton3.Enabled:=True;
 flatbutton4.Enabled:=True;
 label2.Caption:='';
-end
-  else
-  if (dec<>'S') and (dec<>'N') then
-  begin
-
-  showmessage('Entrada Inválida,foi digitado:'+dec+' Entrada Esperada: S ou N');
-
-   end;
+end;
 
 end;
 
 procedure TForm2.FormShow(Sender: TObject);
 begin
+edit1.Enabled:=False;
+
+edit1.Text:='Digite os Dados';
 flatbutton1.Enabled:=false;
 flatbutton2.Enabled:=false;
 flatbutton3.Enabled:=false;
 flatbutton4.Enabled:=false;
+
 end;
 
 procedure TForm2.FormCreate(Sender: TObject);
@@ -303,4 +308,40 @@ begin
 DeleteMenu(GetSystemMenu(Handle, False), SC_MOVE, MF_BYCOMMAND);
 
     end;
+procedure TForm2.Edit1Click(Sender: TObject);
+begin
+
+//edit1.Enabled:=True;
+edit1.clear;
+
+end;
+
+procedure TForm2.Edit1Enter(Sender: TObject);
+begin
+if Edit1.Text = 'Informe o nome' then
+Begin
+Edit1.Clear;
+Edit1.Font.Color:= clWindowText;
+End;
+end;
+
+procedure TForm2.Edit1Change(Sender: TObject);
+begin
+edit1.Font.Color:=clblack;
+//edit1.Enabled:=True;
+end;
+
+procedure TForm2.diClick(Sender: TObject);
+begin
+edit1.Font.Color:=clSilver;
+edit1.Enabled:=True;
+end;
+
+procedure TForm2.Edit1Exit(Sender: TObject);
+begin
+
+edit1.Text:='Digite os Dados';
+edit1.Font.Color:=clSilver;
+end;
+
 end.

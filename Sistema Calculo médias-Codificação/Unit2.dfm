@@ -5,7 +5,7 @@ object Form2: TForm2
   AutoSize = True
   Caption = 'Calculador de M'#233'dias'
   ClientHeight = 393
-  ClientWidth = 465
+  ClientWidth = 449
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,10 +17,10 @@ object Form2: TForm2
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
-  object Image1: TImage
+  object di: TImage
     Left = 0
     Top = 0
-    Width = 465
+    Width = 449
     Height = 393
     Picture.Data = {
       0A544A504547496D616765973A0100FFD8FFE000104A46494600010100000100
@@ -2541,6 +2541,7 @@ object Form2: TForm2
       4290B786354764258CEB191BF24F18C718E3F2AFBD5AD35F59159752B7606248
       D95E0E15B077C831DF3FC278FA569E9C971058411DDCC2E6E557124C142EF3EB
       81C0A067FFD9}
+    OnClick = diClick
   end
   object FlatButton1: TFlatButton
     Left = 8
@@ -2652,29 +2653,34 @@ object Form2: TForm2
   object Edit1: TEdit
     Left = 16
     Top = 8
-    Width = 425
+    Width = 409
     Height = 92
     AutoSize = False
+    Enabled = False
     Font.Charset = ANSI_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -53
-    Font.Name = 'Segoe Script'
+    Font.Color = clBlack
+    Font.Height = -64
+    Font.Name = 'Arial Narrow'
     Font.Style = []
     ParentFont = False
     TabOrder = 6
+    OnChange = Edit1Change
+    OnClick = Edit1Click
+    OnEnter = Edit1Enter
+    OnExit = Edit1Exit
     OnKeyPress = Edit1KeyPress
   end
   object FlatPanel1: TFlatPanel
     Left = 168
-    Top = 136
+    Top = 112
     Width = 233
-    Height = 81
+    Height = 105
     ParentColor = True
     TabOrder = 7
     UseDockManager = True
     object Label2: TLabel
-      Left = 9
-      Top = -32
+      Left = 1
+      Top = -16
       Width = 24
       Height = 129
       Font.Charset = ANSI_CHARSET
